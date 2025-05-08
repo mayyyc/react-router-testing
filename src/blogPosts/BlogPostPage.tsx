@@ -12,9 +12,7 @@ export const BlogPostPage: React.FC = () => {
   console.log(data);
   return (
     <div>
-      <button onClick={() => navigate(blogPostsPath)}>
-        Back to Blog Posts
-      </button>
+      <button onClick={() => navigate(blogPostsPath)}>Back</button>
       {data?.blogPost.title}
       {data?.blogPost.content}
     </div>

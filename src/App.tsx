@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { BlogPostsPage } from "./blogPosts/list/BlogPostsPage";
+import { BlogPostsPage } from "./blogPosts/BlogPostsPage";
 import { blogPostPath, blogPostsPath, blogPostsPathDeprecated } from "./routes";
 import { MockedProvider } from "@apollo/client/testing";
 import { mocks } from "./mocks";
