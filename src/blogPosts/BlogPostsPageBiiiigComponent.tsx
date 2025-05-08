@@ -7,15 +7,15 @@
 import React from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { blogPostPath } from "../routes";
+import { useBlogPostsQuery } from "../queries";
+import type { IBlogPost } from "../types";
 
 export const BlogPostsPage: React.FC = () => {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
-  const { data } = useBlogPostQuery({
-    variables: {
-      page: searchParams.get("page"),
-      perPage: searchParams.get("perPage"),
-    },
+  const { data } = useBlogPostsQuery({
+    page: 1,
+    perPage: 10,
   });
   const onChangePage = (nextOrPrev: "next" | "prev") => {
     const currentPageParam = searchParams.get("page");
@@ -27,7 +27,7 @@ export const BlogPostsPage: React.FC = () => {
   };
   return (
     <div>
-      {data.blogPosts.map((post) => (
+      {data?.blogPosts.map((post: IBlogPost) => (
         <div>
           {post.title}
           <button onClick={() => navigate(blogPostPath(post.id))}>view</button>

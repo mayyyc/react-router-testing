@@ -1,8 +1,9 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { BlogPostsPage } from "./blogPosts/list/BlogPostsPage";
-import { blogPostsPath, blogPostsPathDeprecated } from "./routes";
+import { blogPostPath, blogPostsPath, blogPostsPathDeprecated } from "./routes";
 import { MockedProvider } from "@apollo/client/testing";
 import { mocks } from "./mocks";
+import { BlogPostPage } from "./blogPosts/BlogPostPage";
 
 export default function App() {
   return (
@@ -13,8 +14,9 @@ export default function App() {
             path={blogPostsPathDeprecated}
             element={<Navigate replace to={blogPostsPath} />}
           />
-          <Route path={"/"} element={<Navigate replace to={blogPostsPath} />} />
+          <Route path="/" element={<Navigate replace to={blogPostsPath} />} />
           <Route path={blogPostsPath} element={<BlogPostsPage />} />
+          <Route path={blogPostPath(":postUid")} element={<BlogPostPage />} />
         </Routes>
       </BrowserRouter>
     </MockedProvider>
