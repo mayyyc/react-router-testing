@@ -1,9 +1,10 @@
-// big bad boy component
-// imagine when you have more features like filters, search, etc.
-// things tangle up together: ui, query, routing
-// hard to test one thing without testing another at the same time
-// end up with one big test file, when something fails, you have no idea what exactly is failing
-
+/**
+ * big bad boy component
+ * imagine when you have more features like filters, search, etc.
+ * things tangle up together: ui, query, routing
+ * hard to test one thing without testing another at the same time
+ * end up with one big test file, when something fails, you have no idea what exactly is failing
+ */
 import React from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { blogPostPath } from "../routes";
@@ -52,10 +53,20 @@ export const BlogPostsPage: React.FC = () => {
     <div>
       {data?.blogPosts.map((post: IBlogPost) => (
         <div>
+          {/**
+           * bad practice 3:
+           *  1. if we want to test the onclick we have to test on current component level
+           *     then we might have too many tests in one file, it makes it harder to read
+           * solution:
+           *  1. create its own component and test everything there
+           * check `/src/blogPosts/BlogPostPreview.tsx` for implementation
+           *
+           */}
           {post.title}
           <button onClick={() => navigate(blogPostPath(post.id))}>view</button>
         </div>
       ))}
+      {/* refer to bad practice 2, line 32 */}
       <button onClick={() => onChangePage("prev")}>prev page </button>
       <div>{searchParams.get("page")}</div>
       <button onClick={() => onChangePage("next")}>next page </button>

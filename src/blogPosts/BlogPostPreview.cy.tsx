@@ -1,3 +1,4 @@
+import { mount } from "@cypress/react";
 import { blogPostPath } from "../routes";
 import { BlogPostPreview } from "./BlogPostPreview";
 import { MemoryRouter, useLocation } from "react-router-dom";
@@ -30,7 +31,7 @@ describe("<BlogPostPreview />", () => {
    * step 2: then we can easily assert url is being updated when clicking on view button
    */
   it("view should take you to blog post path", () => {
-    cy.mount(
+    mount(
       <MemoryRouter>
         <BlogPostPreview
           post={{ id: "1", title: "Test Post", content: "Test content" }}

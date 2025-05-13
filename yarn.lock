@@ -316,6 +316,11 @@
   resolved "https://registry.yarnpkg.com/@colors/colors/-/colors-1.5.0.tgz#bb504579c1cae923e6576a4f5da43d25f97bdbd9"
   integrity sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==
 
+"@cypress/react@^9.0.1":
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/@cypress/react/-/react-9.0.1.tgz#9402ee74dc659e522e2eb620e6b4eaf188307587"
+  integrity sha512-qu6ziP2smdlfy3Yvrhm6PadxEtkc/cl6YhZu3h6KCtz+0s54joqxp6uGYOglpwyMBp3qjtSil1JVlFX0hUi5LQ==
+
 "@cypress/request@^3.0.8":
   version "3.0.8"
   resolved "https://registry.yarnpkg.com/@cypress/request/-/request-3.0.8.tgz#992f1f42ba03ebb14fa5d97290abe9d015ed0815"
